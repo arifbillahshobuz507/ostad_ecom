@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('category_name',50);
-            $table->string('category_image',300);
+            $table->string('category_image',200);
             $table->timestamp('created_at')->useCurrent();
             $table->string('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

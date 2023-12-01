@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('title',100);
             $table->string('short_description',300);
             $table->string('image',300);
-            // Relation 
-            $table->unsignedInteger('product_id');
+            // foregin key
+            $table->unsignedBigInteger('product_id')->unique();
+            // product Relatio 
             $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

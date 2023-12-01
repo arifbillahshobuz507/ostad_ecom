@@ -13,19 +13,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title',30);
-            $table->string('short_description',250);
-            $table->string('price',30);
-            $table->tinyInteger('discount',50);
-            $table->string('discount_price',20);
-            $table->string('image',300);
-            $table->tinyInteger('stock',50);
-            $table->double('star',8,2);
-            $table->enum('remark',['yes','no']);
-            // Relation 
+            $table->string('title',200);
+            $table->string('short_description',500);
+            $table->string('price',50);
+            $table->boolean('discount');
+            $table->string('discount_price',50);
+            $table->string('image',200);
+            $table->boolean('stock');
+            $table->float('star');
+            $table->enum('remark',['popular','new','top','special','trendin','regular']);            
+            // foreign key
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
+            // category Relation 
             $table->foreign('category_id')->references('id')->on('categories')->restrictOnDelete()->cascadeOnUpdate();
+            // brand Relation 
             $table->foreign('brand_id')->references('id')->on('brands')->restrictONDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

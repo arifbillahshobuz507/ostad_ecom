@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('description',300);
+            $table->string('description',500);
             // Relation 
-            $table->string('email');
+            $table->string('email',50);
             $table->unsignedInteger('product_id');
             $table->foreign('email')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();

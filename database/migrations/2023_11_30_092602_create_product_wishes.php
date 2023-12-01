@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('product_wishes', function (Blueprint $table) {
             $table->id();
-            // Relation 
-            $table->string('email');
+            // foreign key 
+            $table->string('email',50);
             $table->unsignedInteger('product_id');
+            // email Relation
             $table->foreign('email')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+            // product Relation
             $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

@@ -20,9 +20,10 @@ return new class extends Migration
             $table->longText('description');
             $table->string('color');
             $table->string('size');
-            // Relation 
-            $table->unsignedInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
+            // foregin key 
+            $table->unsignedBigInteger('product_id')->unique();
+            // product Relation
+            $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();           
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
