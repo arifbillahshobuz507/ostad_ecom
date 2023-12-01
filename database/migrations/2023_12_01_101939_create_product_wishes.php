@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             // foreign key 
             $table->string('email',50);
-            $table->unsignedInteger('product_id');
+            $table->unsignedBigInteger('product_id');
             // email Relation
-            $table->foreign('email')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             // product Relation
             $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email',50);
             $table->unsignedBigInteger('product_id');
             //email Relation 
-            $table->foreign('email')->references('id')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             //product Relation
             $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
