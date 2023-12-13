@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('email',50)->unique();
 
             // Relation on user
+            // $table->foreign('foreign key')->references('kone column er shate tar name')->on('kone table er shate ')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('Updated_at')->useCurrent()->useCurrentOnUpdate();

@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->id();
             $table->longText('description');
+            // foreign key 
             $table->string('email',50);
-            $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             $table->unsignedBigInteger('product_id');
+            // $table->foreign('foreign key')->references('kone column er shate tar name')->on('kone table er shate ')->restrictOnDelete()->cascadeOnUpdate();
+            // Relation on email
+            $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
+            // Relation on product
             $table->foreign('product_id')->references('id')->on('products')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('crated_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

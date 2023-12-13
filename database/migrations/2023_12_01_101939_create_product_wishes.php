@@ -19,7 +19,8 @@ return new class extends Migration
             // email Relation
             $table->foreign('email')->references('email')->on('users')->restrictOnDelete()->cascadeOnUpdate();
             // product Relation
-            $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
+            // $table->foreign('foreign key')->references('kone column er shate tar name')->on('kone table er shate ')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('product_id')->references('id')->on('products')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
             // category Relation 
+            // $table->foreign('foreign key')->references('kone column er shate tar name')->on('kone table er shate ')->restrictOnDelete()->cascadeOnUpdate();
             $table->foreign('category_id')->references('id')->on('categories')->restrictOnDelete()->cascadeOnUpdate();
             // brand Relation 
             $table->foreign('brand_id')->references('id')->on('brands')->restrictONDelete()->cascadeOnUpdate();

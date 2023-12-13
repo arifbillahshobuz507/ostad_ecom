@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('image',300);
             // foregin key
             $table->unsignedBigInteger('product_id')->unique();
+            // $table->foreign('foreign key')->references('kone column er shate tar name')->on('kone table er shate ')->restrictOnDelete()->cascadeOnUpdate();
             // product Relatio 
-            $table->foreign('product_id')->references('id')->on('product_details')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreign('product_id')->references('id')->on('products')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
